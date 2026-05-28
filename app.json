@@ -1,20 +1,23 @@
 {
   "expo": {
-    "name": "DatalakeApp",
+    "name": "NHAI Datalake",
     "slug": "DatalakeApp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "ios": {
-      "supportsTablet": true,
+      "bundleIdentifier": "com.nhai.datalakeapp",
+      "supportsTablet": false,
       "infoPlist": {
-        "NSCameraUsageDescription": "DatalakeApp needs access to your Camera for facial recognition."
+        "NSCameraUsageDescription": "NHAI Datalake needs camera access for facial recognition and attendance.",
+        "NSLocationWhenInUseUsageDescription": "NHAI Datalake uses your location to geotag attendance records.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "NHAI Datalake uses your location to geotag attendance records."
       }
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#0B1120",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
@@ -23,16 +26,15 @@
       "permissions": [
         "android.permission.CAMERA",
         "android.permission.INTERNET",
-        "android.permission.ACCESS_NETWORK_STATE"
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION"
       ],
-      "package": "com.anonymous.DatalakeApp"
+      "package": "com.nhai.datalakeapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": [
-      "react-native-fast-tflite"
-    ],
     "extra": {
       "eas": {
         "projectId": "35bfd824-6d59-4ca7-b361-72c1d648a418"

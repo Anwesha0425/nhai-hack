@@ -1,15 +1,25 @@
 # Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 
-# dependencies
+# ─── Dependencies ────────────────────────────────────────────────────────────
 node_modules/
+.pnp
+.pnp.js
 
-# Expo
+# ─── Expo ────────────────────────────────────────────────────────────────────
 .expo/
 dist/
 web-build/
 expo-env.d.ts
 
-# Native
+# ─── Native Build Artifacts ──────────────────────────────────────────────────
+# /ios
+# /android
+android/build/
+android/app/build/
+android/facepipeline/build/
+android/.gradle/
+android/app/.cxx/
+android/facepipeline/.cxx/
 .kotlin/
 *.orig.*
 *.jks
@@ -17,25 +27,61 @@ expo-env.d.ts
 *.p12
 *.key
 *.mobileprovision
+*.keystore
 
-# Metro
+# ─── Metro bundler ───────────────────────────────────────────────────────────
 .metro-health-check*
 
-# debug
+# ─── Debug logs ──────────────────────────────────────────────────────────────
 npm-debug.*
 yarn-debug.*
 yarn-error.*
+*.log
 
-# macOS
+# ─── OS files ────────────────────────────────────────────────────────────────
 .DS_Store
+.DS_Store?
+Thumbs.db
 *.pem
 
-# local env files
+# ─── Environment / Secrets ───────────────────────────────────────────────────
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 .env*.local
 
-# typescript
+# ─── TypeScript ──────────────────────────────────────────────────────────────
 *.tsbuildinfo
 
-# generated native folders
-/ios
-/android
+# ─── AI Model files ──────────────────────────────────────────────────────────
+# assets/models/*.tflite
+assets/models/*.bin
+assets/models/*.onnx
+assets/models/*.pt
+
+# ─── EAS / Build artifacts ───────────────────────────────────────────────────
+.easignore
+
+# ─── Editor / IDE ────────────────────────────────────────────────────────────
+.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ─── Project-specific exclusions ─────────────────────────────────────────────
+README.md
+.env.example
+.claude/
+AGENTS.md
+CLAUDE.md
+PROJECT_CONTEXT.md
+implementation_plan.md
+walkthrough.md
+HACKATHON_PITCH.md
+error-on-phone.jpeg
+rewrite_pipeline.py
