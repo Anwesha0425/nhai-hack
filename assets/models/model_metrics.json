@@ -1,0 +1,50 @@
+{
+  "modelName": "NHAI-EdgeAI-FacePipeline-v2",
+  "pipeline": "BlazeFace → FaceMesh → MobileFaceNet",
+  "architecture": "Modular TFLite Pipeline (C++ Native)",
+  "stages": {
+    "detection": {
+      "model": "BlazeFace / Face Detector",
+      "inputSize": 128,
+      "format": "TFLite INT8",
+      "sizeMb": 1.2
+    },
+    "landmarks": {
+      "model": "Face Mesh / Landmark Detector",
+      "inputSize": 192,
+      "landmarkCount": 468,
+      "format": "TFLite Float32",
+      "sizeMb": 1.2
+    },
+    "recognition": {
+      "model": "MobileFaceNet INT8 Quantized",
+      "inputSize": 112,
+      "embeddingDim": 128,
+      "format": "TFLite INT8",
+      "sizeMb": 1.2
+    }
+  },
+  "liveness": {
+    "method": "Mathematical Heuristics (No NN)",
+    "blinkDetection": "Eye Aspect Ratio (EAR < 0.21)",
+    "smileDetection": "Mouth Aspect Ratio (MAR > 0.6)",
+    "headPoseEstimation": "PnP Solver (|yaw| > 15°)"
+  },
+  "trainingDataset": "LFW (Labeled Faces in the Wild)",
+  "trainingPairs": 4400,
+  "testPairs": 1000,
+  "embeddingDim": 128,
+  "verificationAccuracy": 94.8,
+  "auc": 0.982,
+  "tarAtFar01": 87.4,
+  "avgInferenceMs": 88,
+  "totalModelSizeMb": 3.6,
+  "modelSizeMb": 3.6,
+  "parameters": 1068080,
+  "matchThreshold": 0.65,
+  "trainedAt": "2026-05-27T07:20:27Z",
+  "epochs": 40,
+  "framework": "TensorFlow Lite 2.16.1 (C++ API)",
+  "nativeBridge": "JNI → C++17 (-O3 -ffast-math)",
+  "targetPlatforms": "Android 8.0+ (arm64-v8a, armeabi-v7a)"
+}
